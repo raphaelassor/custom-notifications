@@ -1,8 +1,4 @@
 import io from 'socket.io-client'
-import { httpService } from './httpService'
-
-
-
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
@@ -14,10 +10,8 @@ function createSocketService() {
   const socketService = {
     async setup() {
       if (socket) return
-      // const user=await httpService.get('setup-session')
       socket = io(baseUrl, { reconnection: false })
       socketIsReady = true;
-      // socket.emit('user-connected',user._id)
     },
     async on(eventName, cb) {
       if (!socket) await socketService.setup()
