@@ -1,0 +1,47 @@
+.user-notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    right: 1rem;
+    top: 6rem;
+    padding: 1rem;
+    min-width: rem(250px);
+    max-width: rem(400px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    transform: translateX(110%);
+    transition: .2s;
+    cursor: pointer;
+    &.info {
+        background-color: rgba(82, 182, 248, 0.8);
+        color: rgb(5, 75, 122);
+    }
+    &.warning {
+        background-color: rgba(240, 182, 76, 0.8);
+        color: rgb(165, 91, 6);
+    }
+    &.success {
+        background-color: rgba(145, 243, 106, 0.8);
+        color: rgb(32, 88, 22);
+    }
+    &.error {
+        background-color: rgba(246, 102, 102, 0.8);
+        color: rgb(131, 10, 10);
+    }
+    &.finish {
+        background-color: rgb(236, 134, 254);
+    }
+    &.slide {
+        transform: translateX(0%);
+    }
+    .msg {
+        flex-grow: 1;
+        margin: 0 1rem;
+    }
+    svg{
+        width:25px;
+        height:25px;
+    }
+}

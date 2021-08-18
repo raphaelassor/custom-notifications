@@ -1,0 +1,48 @@
+.app{ 
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-columns: 1fr;
+    min-height:100vh;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns:1fr;
+    > * {
+        grid-column: 2;
+
+        &.full {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @include for-narrow-layout {
+        grid-template-columns:
+            rem(20px)
+            minmax(auto, $mobile-breakpoint)
+            rem(20px)
+    } 
+    @include for-normal-layout {
+        grid-template-columns:
+            rem(20px)
+            minmax(auto,$normal-breakpoint)
+            rem(20px)
+    } 
+    @include for-wide-layout {
+        grid-template-columns:
+        rem(32px)
+        minmax(auto, $normal-breakpoint)
+        rem(32px)
+    }
+    @include for-xl-wide-layout{
+        grid-template-columns:
+        rem(40px)
+        minmax(auto, 1fr)
+        rem(40px)
+    }
+}
+
+
+
+
+
